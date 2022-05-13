@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Android Labs</string>
+    <string name="hello_message">Kamusta Mundo</string>
+    <string name="ButtonText">Ako ay isang pindutan</string>
+</resources>
