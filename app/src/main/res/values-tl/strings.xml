@@ -8,5 +8,6 @@
     <string name="SwitchOff">ang switch ay nakapatay </string>
     <string name="SwitchOn">ang switch ay nakabukas </string>
     <string name="hint_1">Ilagay Ang Pangalan Dito</string>
+    <string name="toast_message">Ito ay karagdagang impormasyon</string>
 
 </resources>
