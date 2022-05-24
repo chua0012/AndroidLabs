@@ -6,6 +6,6 @@
     <string name="SwitchText">Switch on / off</string>
     <string name="SwitchOff">Switch is off </string>
     <string name="SwitchOn">Switch is on </string>
-    <string name="hint_1">Enter name here</string>
+    <string name="hint_1">Enter Name Here</string>
 
 </resources>

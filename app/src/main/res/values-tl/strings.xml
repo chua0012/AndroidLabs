@@ -7,6 +7,6 @@
     <string name="SwitchText">switch bukas/patay </string>
     <string name="SwitchOff">ang switch ay nakapatay </string>
     <string name="SwitchOn">ang switch ay nakabukas </string>
-    <string name="hint_1">ilagay ang pangalan dito</string>
+    <string name="hint_1">Ilagay Ang Pangalan Dito</string>
 
 </resources>
