@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                             .setAction("undo", new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-
+                                    sw.toggle();
                                 }
                             });
                 }
