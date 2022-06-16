@@ -9,5 +9,16 @@
     <string name="SwitchOn">ang switch ay nakabukas </string>
     <string name="hint_1">Ilagay Ang Pangalan Dito</string>
     <string name="toast_message">Ito ay karagdagang impormasyon</string>
+    <string name="email">Ilagay ang email address:</string>
+    <string name="hint_email">Itype ang Email dito</string>
+    <string name="password">Ilagay ang password:</string>
+    <string name="login">MAG LOGIN</string>
+    <string name="profile_label">Iyong profile</string>
+    <string name="name_label">Iyong pangalan:</string>
+    <string name="email_label">Iyong email:</string>
+    <string name="picture_label">Iyong larawan:</string>
+    <string name="cam_label">Pindutin ang pindutan sa ibabaw para kumuha ng litrato</string>
+    <string name="hint_name">Ilagayan ang iyong pangalan</string>
+    <string name="hint_email2">Ilagayan ang iyong email</string>
 
 </resources>

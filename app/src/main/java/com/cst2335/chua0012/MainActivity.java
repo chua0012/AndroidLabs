@@ -2,52 +2,56 @@ package com.cst2335.chua0012;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
-    //androidx.constraintlayout.widget.ConstraintLayout mainLayout;
+    private TextView textView;
+    private EditText editText;
+    private Button button;
+
+    public static final String SHARED_PREFS = "SP";
+    public static final String EMAIL = "email";
+
+    private String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_constraint);
+        setContentView(R.layout.activity_main);
 
-        Button btn = findViewById(R.id.button);
-        Switch sw = (Switch) findViewById(R.id.switch1);
+        editText = findViewById(R.id.editTextTextEmailAddress_input);
+        button = findViewById(R.id.button);
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+        //Read preferences
+        String previous = prefs.getString(EMAIL, "");
+        editText.setText(previous);
+
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), R.string.toast_message, Toast.LENGTH_LONG).show();
+                {
+                    String userTyped = editText.getText().toString();
+                    Intent nextPage = new Intent(MainActivity.this,   ProfileActivity.class  );
+                    nextPage.putExtra(EMAIL, userTyped);
+
+                    startActivity(    nextPage  );
+                }
             }
         });
 
-        sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton cb, boolean b) {
-                Snackbar snackbar;
-                if (b) {
-                    snackbar = Snackbar.make(cb, R.string.SwitchOn, Snackbar.LENGTH_SHORT)
-                            .setAction("undo", new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    sw.toggle();
-                                }
-                            });
-                }
-                else {
-                    snackbar = Snackbar.make(cb, R.string.SwitchOff, Snackbar.LENGTH_SHORT);
-                }
-                snackbar.show();
-            }
-        });
     }
 }
