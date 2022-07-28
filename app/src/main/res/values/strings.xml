@@ -20,4 +20,10 @@
     <string name="hint_name">Enter Your name</string>
     <string name="hint_email2">Enter your email</string>
 
+    <string name="chat">Go To Chat</string>
+    <string name="recieve">Recieve</string>
+    <string name="send">Send</string>
+    <string name="msg_text">Message goes here</string>
+    <string name="msg_hint">Type Here</string>
+
 </resources>

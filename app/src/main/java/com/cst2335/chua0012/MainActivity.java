@@ -44,8 +44,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 {
-                    String userTyped = editText.getText().toString();
+
                     Intent nextPage = new Intent(MainActivity.this,   ProfileActivity.class  );
+                    String userTyped = editText.getText().toString();
                     nextPage.putExtra(EMAIL, userTyped);
 
                     startActivity(    nextPage  );

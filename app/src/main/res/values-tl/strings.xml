@@ -21,4 +21,10 @@
     <string name="hint_name">Ilagayan ang iyong pangalan</string>
     <string name="hint_email2">Ilagayan ang iyong email</string>
 
+    <string name="chat">Pumunta sa Chat</string>
+    <string name="recieve">Recieve</string>
+    <string name="send">Send</string>
+    <string name="msg_hint">Magtype dito</string>
+    <string name="msg_text">Dito lalabas ang mensahe</string>
+
 </resources>

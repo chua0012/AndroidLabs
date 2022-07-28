@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -23,7 +24,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     public static final String TAG = "PROFILE_ACTIVITY";
     ImageButton imgbtn;
-
+    Button button2;
 
     ActivityResultLauncher<Intent> myPictureTakerLauncher =
             registerForActivityResult( new ActivityResultContracts.StartActivityForResult()
@@ -58,6 +59,7 @@ public class ProfileActivity extends AppCompatActivity {
         writer.putString(MainActivity.EMAIL, editText.getText().toString());
         writer.apply();
 
+        button2 = findViewById(R.id.button2);
         ImageButton cam = findViewById( R.id.imageButton);
         cam.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +75,20 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
        imgbtn = findViewById( R.id.imageButton);
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                {
+
+                    Intent nextPage = new Intent(ProfileActivity.this,   ChatRoomActivity.class  );
+
+                    startActivity(    nextPage  );
+                }
+            }
+        });
     }
+
 
     @Override
     protected void onStart() {
@@ -104,4 +119,6 @@ public class ProfileActivity extends AppCompatActivity {
         super.onDestroy();
         Log.e(TAG, "In onDestroy");
     }
+
+
 }
