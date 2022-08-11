@@ -25,6 +25,7 @@ public class ProfileActivity extends AppCompatActivity {
     public static final String TAG = "PROFILE_ACTIVITY";
     ImageButton imgbtn;
     Button button2;
+    Button weather;
 
     ActivityResultLauncher<Intent> myPictureTakerLauncher =
             registerForActivityResult( new ActivityResultContracts.StartActivityForResult()
@@ -85,6 +86,15 @@ public class ProfileActivity extends AppCompatActivity {
 
                     startActivity(    nextPage  );
                 }
+            }
+        });
+
+        weather = findViewById(R.id.weather);
+        weather.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent nextPage = new Intent(ProfileActivity.this,   WeatherForcast.class  );
+                startActivity(    nextPage  );
             }
         });
     }
