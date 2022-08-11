@@ -6,10 +6,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.MenuView;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -17,6 +20,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -39,6 +43,9 @@ public class ChatRoomActivity extends AppCompatActivity {
     SQLiteDatabase db;
     long id;
     public static final String TAG2 = "CHAT_ROOM_ACTIVITY";
+    public static final String ITEM_SELECTED = "ITEM";
+    public static final String ITEM_POSITION = "POSITION";
+    public static final String ITEM_ID = "ID";
 
 
     @Override
@@ -135,6 +142,33 @@ public class ChatRoomActivity extends AppCompatActivity {
             //Show the id of the inserted item:
             Toast.makeText(this, "Inserted item id:" + newId, Toast.LENGTH_LONG).show();
         });
+
+        /*boolean isTablet = findViewById(R.id.fragmentLocation) != null;
+
+        ArrayAdapter<String> theAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, messages);
+        theList.setAdapter(theAdapter);
+        theList.setOnItemClickListener((list, item, position, id) -> {
+
+        Bundle dataToPass = new Bundle();
+        dataToPass.putString(ITEM_SELECTED, messages.get(position) );
+        dataToPass.putInt(ITEM_POSITION, position);
+        dataToPass.putLong(ITEM_ID, id);
+
+        if(isTablet)
+        {
+            DetailFragment dFragment = new DetailFragment(); //add a DetailFragment
+            dFragment.setArguments( dataToPass ); //pass it a bundle for information
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragmentLocation, dFragment) //Add the fragment in FrameLayout
+                    .commit(); //actually load the fragment. Calls onCreate() in DetailFragment
+        }
+        else //isPhone
+        {
+            Intent nextActivity = new Intent(FragmentExample.this, EmptyActivity.class);
+            nextActivity.putExtras(dataToPass); //send data to next activity
+            startActivity(nextActivity); //make the transition
+        }*/
 
     }
 
@@ -346,5 +380,6 @@ public class ChatRoomActivity extends AppCompatActivity {
         }
 
     }
+
 }
 
