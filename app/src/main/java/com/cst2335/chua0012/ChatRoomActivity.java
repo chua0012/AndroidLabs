@@ -337,9 +337,9 @@ public class ChatRoomActivity extends AppCompatActivity {
         /**
          * Chaining constructor:
          */
-        public Message(String m) {
+        /*public Message(String m) {
             this(m, 0);
-        }
+        }*/
 
         public String getMessage() {
             return messageTyped;

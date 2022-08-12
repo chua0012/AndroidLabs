@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:id="@+id/fragmentLocation">
+
+    <Button
+        android:id="@+id/send"
+        android:layout_width="101dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#8AB8B8B8"
+        android:text="@string/send"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView9" />
+
+    <EditText
+        android:id="@+id/textView9"
+        android:layout_width="168dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="8dp"
+        android:hint="@string/msg_hint"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toEndOf="@+id/receive" />
+
+    <Button
+        android:id="@+id/receive"
+        android:layout_width="108dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="#8AB8B8B8"
+        android:text="@string/recieve"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.013"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/myRecycleView"
+        android:layout_width="434dp"
+        android:layout_height="878dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-2dp"
+        tools:layout_editor_absoluteY="2dp" />
+
+    <FrameLayout
+        android:layout_width="1272dp"
+        android:layout_height="960dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
