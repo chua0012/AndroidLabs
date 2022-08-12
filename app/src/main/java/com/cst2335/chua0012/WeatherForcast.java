@@ -224,8 +224,8 @@ public class WeatherForcast extends AppCompatActivity {
         {
             Log.i("HTTP", fromDoInBackground);
             currentTemp.setText("Current Temperature is " + currentTemp2);
-            minTemp.setText("Current temperature minimum value is " + minTemp2);
-            maxTemp.setText("Current temperature maximum value is " + maxTemp2);
+            minTemp.setText("Minimum temperature value is " + minTemp2);
+            maxTemp.setText("Maximum temperature value is " + maxTemp2);
             uvRating.setText("Current UV rating is " + uvRating2);
             imageView.setImageBitmap(image);
             progressBar.setVisibility(View.INVISIBLE);
