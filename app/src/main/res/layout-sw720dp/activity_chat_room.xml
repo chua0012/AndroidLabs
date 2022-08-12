@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:id="@+id/fragmentLocation">
+    android:id="@+id/chat_root">
 
     <Button
         android:id="@+id/send"
@@ -47,18 +47,22 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/myRecycleView"
-        android:layout_width="434dp"
-        android:layout_height="878dp"
+        android:layout_width="454dp"
+        android:layout_height="wrap_content"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="2dp" />
+        tools:layout_editor_absoluteY="-4dp" />
 
     <FrameLayout
-        android:layout_width="1272dp"
-        android:layout_height="960dp"
+        android:id="@id/fragmentLocation"
+        android:layout_width="841dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toEndOf="@+id/myRecycleView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.418">
 
     </FrameLayout>
 

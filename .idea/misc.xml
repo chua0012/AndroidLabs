@@ -5,10 +5,13 @@
       <map>
         <entry key="..\:/Users/Chu/AndroidStudioProjects/AndroidLabs/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.132" />
         <entry key="..\:/Users/Chu/AndroidStudioProjects/AndroidLabs/app/src/main/res/drawable/ic_launcher_background.xml" value="0.132" />
-        <entry key="..\:/Users/Chu/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout-sw720dp/activity_chat_room.xml" value="0.33" />
-        <entry key="..\:/Users/Chu/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/activity_chat_room.xml" value="0.33" />
+        <entry key="..\:/Users/Chu/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout-notround/activity_weather_forcast.xml" value="0.39895833333333336" />
+        <entry key="..\:/Users/Chu/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout-round/activity_weather_forcast.xml" value="1.5261506276150627" />
+        <entry key="..\:/Users/Chu/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout-sw720dp/activity_chat_room.xml" value="0.16" />
+        <entry key="..\:/Users/Chu/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/activity_chat_room.xml" value="0.67" />
         <entry key="..\:/Users/Chu/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/activity_cra.xml" value="0.5384963768115942" />
         <entry key="..\:/Users/Chu/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/activity_detail_fragment.xml" value="0.3808876811594203" />
+        <entry key="..\:/Users/Chu/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/activity_empty.xml" value="0.16296296296296298" />
         <entry key="..\:/Users/Chu/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Chu/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/activity_main_constraint.xml" value="0.35412474849094566" />
         <entry key="..\:/Users/Chu/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/activity_profile.xml" value="0.33" />
@@ -17,6 +20,7 @@
         <entry key="..\:/Users/Chu/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/activity_sent.xml" value="0.33" />
         <entry key="..\:/Users/Chu/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/activity_weather_forcast.xml" value="0.5" />
         <entry key="..\:/Users/Chu/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/cra.xml" value="0.25" />
+        <entry key="..\:/Users/Chu/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/fragment_details.xml" value="0.25" />
         <entry key="..\:/Users/Chu/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/message_edit.xml" value="0.3541666666666667" />
         <entry key="..\:/Users/Chu/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/msg.xml" value="0.20313695485845448" />
         <entry key="..\:/Users/Chu/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/row_layout.xml" value="0.5" />

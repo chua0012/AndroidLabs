@@ -39,13 +39,14 @@ public class ChatRoomActivity extends AppCompatActivity {
     RecyclerView rView;
     MyAdapter theAdapter;
     ArrayList<Message> messages = new ArrayList<>();
-    boolean decision;
+    public static boolean decision;
     SQLiteDatabase db;
     long id;
     public static final String TAG2 = "CHAT_ROOM_ACTIVITY";
     public static final String ITEM_SELECTED = "ITEM";
     public static final String ITEM_POSITION = "POSITION";
     public static final String ITEM_ID = "ID";
+    public static final String MESSAGE_TYPE = "MT";
 
 
     @Override
@@ -143,32 +144,16 @@ public class ChatRoomActivity extends AppCompatActivity {
             Toast.makeText(this, "Inserted item id:" + newId, Toast.LENGTH_LONG).show();
         });
 
-        /*boolean isTablet = findViewById(R.id.fragmentLocation) != null;
 
-        ArrayAdapter<String> theAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, messages);
+        /*ArrayAdapter<String> theAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, messages);
         theList.setAdapter(theAdapter);
         theList.setOnItemClickListener((list, item, position, id) -> {
 
         Bundle dataToPass = new Bundle();
         dataToPass.putString(ITEM_SELECTED, messages.get(position) );
         dataToPass.putInt(ITEM_POSITION, position);
-        dataToPass.putLong(ITEM_ID, id);
+        dataToPass.putLong(ITEM_ID, id);*/
 
-        if(isTablet)
-        {
-            DetailFragment dFragment = new DetailFragment(); //add a DetailFragment
-            dFragment.setArguments( dataToPass ); //pass it a bundle for information
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragmentLocation, dFragment) //Add the fragment in FrameLayout
-                    .commit(); //actually load the fragment. Calls onCreate() in DetailFragment
-        }
-        else //isPhone
-        {
-            Intent nextActivity = new Intent(FragmentExample.this, EmptyActivity.class);
-            nextActivity.putExtras(dataToPass); //send data to next activity
-            startActivity(nextActivity); //make the transition
-        }*/
 
     }
 
@@ -220,11 +205,11 @@ public class ChatRoomActivity extends AppCompatActivity {
 
             if (decision) {
                 thisRow = li.inflate(R.layout.activity_sent, parent, false);
+
             } else {
                 thisRow = li.inflate(R.layout.activity_recieved, parent, false);
 
             }
-
             return new MyViewHolder(thisRow);
         }
 
@@ -249,6 +234,7 @@ public class ChatRoomActivity extends AppCompatActivity {
     }
 
     //this holds TextViews on a row:
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView messageView;
@@ -259,48 +245,70 @@ public class ChatRoomActivity extends AppCompatActivity {
 
             messageView = itemView.findViewById(R.id.row_view);
 
-            itemView.setOnClickListener(click -> {
+            itemView.setOnLongClickListener(click -> {
                 int position = getAdapterPosition();//which row was clicked.
                 Message whatWasClicked = messages.get(position);
 
                 View contact_view = getLayoutInflater().inflate(R.layout.message_edit, null);
 
-                //get the TextViews
-                EditText rowMessage = contact_view.findViewById(R.id.row_view);
-                TextView rowId = contact_view.findViewById(R.id.row_id);
+                    //get the TextViews
+                    EditText rowMessage = contact_view.findViewById(R.id.row_view);
+                    TextView rowId = contact_view.findViewById(R.id.row_id);
 
-                //set the fields for the alert dialog
-                rowMessage.setText(whatWasClicked.getMessage());
-                rowId.setText("id:" + whatWasClicked.getId());
+                    //set the fields for the alert dialog
+                    rowMessage.setText(whatWasClicked.getMessage());
+                    rowId.setText("id:" + whatWasClicked.getId());
 
-                /*AlertDialog.Builder builder = new AlertDialog.Builder( ChatRoomActivity.this );
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ChatRoomActivity.this);
+                    builder.setTitle("You clicked on item #" + position)
+                            .setMessage("You can update the fields and then click update to save in the database")
+                            .setView(contact_view) //add the 3 edit texts showing the contact information
+                            .setPositiveButton("Update", (dialog, click1) -> {
+                                whatWasClicked.update(rowMessage.getText().toString());
+                                updateMessage(whatWasClicked);
+                                theAdapter.notifyDataSetChanged(); //the email and name have changed so rebuild the list
+                            })
+                            .setNegativeButton("Delete", (dialog, click2) -> {
+                                deleteMessage(whatWasClicked); //remove the contact from database
+                                messages.remove(position); //remove the contact from contact list
+                                theAdapter.notifyDataSetChanged(); //there is one less item so update the list
+                            })
+                            .setNeutralButton("dismiss", (dialog, click3) -> {
+                            })
+                            .create().show();
 
-                builder.setTitle("Question:")
-                        .setMessage("Do you want to delete this:" + whatWasClicked.getMessage())
-                        .setNegativeButton("Negative", (dialog, click1)->{ })
-                        .setPositiveButton("Positive", (dialog, click2)->{
-                            //actually delete something:
-                            messages.remove(position);
-                            theAdapter.notifyItemRemoved(position);
-                        }).create().show();*/
+                return false;
+            });
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(ChatRoomActivity.this);
-                builder.setTitle("You clicked on item #" + position)
-                        .setMessage("You can update the fields and then click update to save in the database")
-                        .setView(contact_view) //add the 3 edit texts showing the contact information
-                        .setPositiveButton("Update", (dialog, click1) -> {
-                            whatWasClicked.update(rowMessage.getText().toString());
-                            updateMessage(whatWasClicked);
-                            theAdapter.notifyDataSetChanged(); //the email and name have changed so rebuild the list
-                        })
-                        .setNegativeButton("Delete", (dialog, click2) -> {
-                            deleteMessage(whatWasClicked); //remove the contact from database
-                            messages.remove(position); //remove the contact from contact list
-                            theAdapter.notifyDataSetChanged(); //there is one less item so update the list
-                        })
-                        .setNeutralButton("dismiss", (dialog, click3) -> {
-                        })
-                        .create().show();
+            itemView.setOnClickListener(click -> {
+                int position = getAdapterPosition();//which row was clicked.
+                Message whatWasClicked = messages.get(position);
+
+                Bundle dataToPass = new Bundle();
+                //dataToPass.putArrayList(ITEM_SELECTED, whatWasClicked );
+                dataToPass.putInt(ITEM_POSITION, position);
+                dataToPass.putLong(ITEM_ID, whatWasClicked.getId());
+                dataToPass.putString(ITEM_SELECTED, whatWasClicked.getMessage());
+
+                boolean isTablet = findViewById(R.id.fragmentLocation) != null;
+                Log.i("is tablet", String.valueOf(isTablet));
+                if(isTablet)
+                {
+
+                    DetailsFragment dFragment = new DetailsFragment(); //add a DetailFragment
+                    dFragment.setArguments( dataToPass ); //pass it a bundle for information
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragmentLocation, dFragment) //Add the fragment in FrameLayout
+                            .commit(); //actually load the fragment. Calls onCreate() in DetailFragment
+                }
+                else //isPhone
+                {
+
+                    Intent nextActivity = new Intent(ChatRoomActivity.this, EmptyActivity.class);
+                    nextActivity.putExtras(dataToPass); //send data to next activity
+                    startActivity(nextActivity); //make the transition
+                }
 
             });
 
@@ -333,13 +341,6 @@ public class ChatRoomActivity extends AppCompatActivity {
         public void update(String m) {
             messageTyped = m;
         }
-
-        /**
-         * Chaining constructor:
-         */
-        /*public Message(String m) {
-            this(m, 0);
-        }*/
 
         public String getMessage() {
             return messageTyped;
