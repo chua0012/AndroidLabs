@@ -4,7 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+    tools:context=".ProfileActivity"
+    android:layout_marginTop="27dp"
+    android:layout_marginBottom="27dp"
+    android:layout_marginLeft="48dp"
+    android:layout_marginRight="48dp"
+    >
 
     <TextView
         android:id="@+id/textView4"
@@ -16,7 +21,8 @@
         app:layout_constraintHorizontal_bias="0.032"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
+        app:layout_constraintVertical_bias="0.022"
+        />
 
     <TextView
         android:id="@+id/textView5"
@@ -78,7 +84,11 @@
         app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115" />
+        app:layout_constraintVertical_bias="0.115"
+        android:nextFocusDown="@id/item1"
+        android:nextFocusUp="@id/item2"
+        android:nextFocusLeft="@id/item3"
+        android:nextFocusRight="@id/item4"/>
 
     <EditText
         android:id="@+id/editTextTextPersonName2"
@@ -92,7 +102,11 @@
         app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.247" />
+        app:layout_constraintVertical_bias="0.247"
+        android:nextFocusDown="@id/item1"
+        android:nextFocusUp="@id/item2"
+        android:nextFocusLeft="@id/item3"
+        android:nextFocusRight="@id/item4"/>
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -105,7 +119,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.514"
-        app:srcCompat="@android:drawable/btn_default" />
+        app:srcCompat="@android:drawable/btn_default"
+        android:nextFocusDown="@id/item1"
+        android:nextFocusUp="@id/item2"
+        android:nextFocusLeft="@id/item3"
+        android:nextFocusRight="@id/item4"/>
 
     <Button
         android:id="@+id/button2"
@@ -117,7 +135,11 @@
         app:layout_constraintHorizontal_bias="0.038"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.762" />
+        app:layout_constraintVertical_bias="0.762"
+        android:nextFocusDown="@id/item1"
+        android:nextFocusUp="@id/item2"
+        android:nextFocusLeft="@id/item3"
+        android:nextFocusRight="@id/item4"/>
 
     <Button
         android:id="@+id/weather"
@@ -129,7 +151,11 @@
         app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.863" />
+        app:layout_constraintVertical_bias="0.863"
+        android:nextFocusDown="@id/item1"
+        android:nextFocusUp="@id/item2"
+        android:nextFocusLeft="@id/item3"
+        android:nextFocusRight="@id/item4"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
